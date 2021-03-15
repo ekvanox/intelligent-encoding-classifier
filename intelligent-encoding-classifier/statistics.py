@@ -3,14 +3,12 @@ import random
 from tqdm import tqdm
 import numpy as np
 from sys import path
-import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras.models import load_model
-from tensorflow.keras.callbacks import TensorBoard
 
 # Disable tensorflow debug logs
 import os
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+
+from tensorflow import keras
 
 
 # Define constants

@@ -1,10 +1,5 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from time import sleep
 import base64
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 from tqdm import tqdm
 import os
 from sys import path

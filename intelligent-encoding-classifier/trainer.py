@@ -1,14 +1,13 @@
 from __future__ import absolute_import, division, print_function, unicode_literals
-import numpy as np
-from sys import path
-import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras.models import load_model
-from tensorflow.keras.callbacks import TensorBoard
 
 # Disable tensorflow debug logs
 import os
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+
+from tensorflow import keras
+import numpy as np
+from sys import path
+import tensorflow as tf
 
 # Set working directory to script directory
 os.chdir(path[0])
@@ -60,8 +59,8 @@ def string_to_onehot(input_string):
 model = keras.Sequential(
     [
         keras.layers.Flatten(input_shape=(64, 63)),
-        keras.layers.Dense(NEURONS, activation=tf.keras.activations.relu),
-        keras.layers.Dense(NEURONS, activation=tf.keras.activations.relu),
+        keras.layers.Dense(NEURONS, activation=keras.activations.relu),
+        keras.layers.Dense(NEURONS, activation=keras.activations.relu),
         keras.layers.Dropout(DROPOUT),
         keras.layers.Dense(len(CLASS_NAMES), activation=tf.nn.softmax),
     ]
