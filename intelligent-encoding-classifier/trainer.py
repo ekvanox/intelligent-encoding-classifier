@@ -21,6 +21,7 @@ EPOCHS = 1
 
 # Define constants
 TRAINING_DATA_PATH: str = os.path.join("datasets", "training_data")
+TENSORFLOW_MODELS_PATH: str = "models"
 NAME = f"NEURONS={NEURONS},DROPOUT={DROPOUT},BATCH_SIZE={BATCH_SIZE},EPOCHS={EPOCHS}"
 
 # Load class names from training data directory
@@ -106,10 +107,6 @@ for training_iteration in range(len(training_data[0])):
         use_multiprocessing=True,
     )
 
-
-# Create model name
-save_model_name = f"tensorflow_model-{NAME}.h5"
-
 # Save model
-model.save(save_model_name)
-model.save("tensorflow_model_latest.h5")
+model.save(os.path.join(TENSORFLOW_MODELS_PATH, f"tensorflow_model-{NAME}.h5"))
+model.save(os.path.join(TENSORFLOW_MODELS_PATH, "tensorflow_model_latest.h5"))
