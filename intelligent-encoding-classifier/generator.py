@@ -8,9 +8,11 @@ from sys import path
 from tqdm import tqdm
 import logging
 
+# Initialize logger
 logging.basicConfig(level=logging.INFO)
 
 
+# Define functions
 def random_string(data: str, length: int = None) -> str:
     """Generates random string with set length
 

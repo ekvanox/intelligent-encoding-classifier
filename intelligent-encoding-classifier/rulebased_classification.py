@@ -9,7 +9,7 @@ def classify_string(string_to_classify: str):
         return 'plain'
     else:
         try:
-            # Check if string can be converted from hex to integer
+            # Check if string can be converted from base 16 to base 10
             int(string_to_classify, 16)
 
             if len(string_to_classify) == 32:

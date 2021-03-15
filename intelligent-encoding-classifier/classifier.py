@@ -7,7 +7,7 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 # Finally import keras from tensorflow
 from tensorflow import keras
 
-# Set working dir to actual file dir
+# Set working directory to script directory
 os.chdir(path[0])
 
 # User configuration variables
@@ -47,7 +47,7 @@ INPUT_DATA = [string_to_onehot(PREDICTION_STRING)]
 # Make prediction with model
 prediction_list = model.predict(INPUT_DATA)[0]
 
-# Sort predictions made by network
+# Sort all predictions
 sorted_predictions = [(encoding,prediction_list[i]) for i,encoding in enumerate(CLASS_NAMES)]
 sorted_predictions.sort(key=lambda tup: tup[1],reverse=True)
 

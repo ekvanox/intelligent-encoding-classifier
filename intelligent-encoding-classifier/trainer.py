@@ -1,17 +1,17 @@
 from __future__ import absolute_import, division, print_function, unicode_literals
+import numpy as np
+from sys import path
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras.models import load_model
+from tensorflow.keras.callbacks import TensorBoard
 
 # Disable tensorflow debug logs
 import os
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 
-from tensorflow.keras.callbacks import TensorBoard
-from tensorflow.keras.models import load_model
-from tensorflow import keras
-import tensorflow as tf
-from sys import path
-import numpy as np
-
-os.chdir(path[0])  # Set default dir to actual file dir
+# Set working directory to script directory
+os.chdir(path[0])
 
 # User configurable variables
 NEURONS = 54
@@ -76,7 +76,7 @@ for i, class_name in enumerate(CLASS_NAMES):
     training_data.append(chunks(load_test_data(class_name), 10_000))
 
 
-# Load 10.000 inputs at a time
+# Load a user specified number inputs at a time
 for training_iteration in range(len(training_data[0])):
     print(f"Iteration {training_iteration}")
 
@@ -107,8 +107,9 @@ for training_iteration in range(len(training_data[0])):
     )
 
 
-# Creates model name
+# Create model name
 save_model_name = f"tensorflow_model-{NAME}.h5"
-# Saves model with time and name to prevent over writing
+
+# Save model
 model.save(save_model_name)
 model.save("tensorflow_model_latest.h5")
